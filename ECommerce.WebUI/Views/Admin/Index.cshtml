@@ -3,6 +3,7 @@
     Layout = "_AdminLayout";
 }
 
+
 <p>
     <a href="/admin/add" class="btn btn-outline-primary">Create New</a>
     @if (Model.CurrentFilterState)
@@ -17,6 +18,7 @@
 <table class="table">
     <thead>
         <tr>
+
             <th>ProductName</th>
             <th>UnitPrice</th>
             <th>UnitsInStock</th>
@@ -32,15 +34,15 @@
                 
                        <td>
                            <input type="hidden" asp-for="Product.ProductId" value="@item.ProductId" />
-                           <input asp-for="Product.ProductName" value="@item.ProductName">
+                           <input class="input" asp-for="Product.ProductName" value="@item.ProductName">
                        </td>
                 
                        <td>
-                           <input asp-for="Product.UnitPrice" value="@item.UnitPrice">
+                            <input class="input" asp-for="Product.UnitPrice" value="@item.UnitPrice">
                        </td>
                 
                        <td>
-                            <input asp-for="Product.UnitsInStock" value="@item.UnitsInStock">
+                            <input class="input" asp-for="Product.UnitsInStock" value="@item.UnitsInStock">
                        </td>
                 
                        <td>
