@@ -26,24 +26,32 @@
     <tbody>
         @foreach (var item in Model.Products)
         {
-            <tr>
-                <td>
-                    @item.ProductName
-                </td>
-                <td>
-                    @item.UnitPrice
-                </td>
-                <td>
-                    @item.UnitsInStock
-                </td>
-                <td>
-                   @* <a class="btn btn-xs btn-success" asp-controller="Cart"
-                   asp-action="AddToCart" asp-route-productId="@item.ProductId">Add To Cart</a>*@
-
-                  <a class="btn btn-xs btn-danger" asp-controller="Admin"
-                   asp-action="DeleteProduct" asp-route-productId="@item.ProductId">Delete</a>
-                </td>
-            </tr>
+            <form asp-controller="Admin" asp-action="UpdateProduct" method="post">
+              <table>
+                <tr>
+                
+                       <td>
+                           <input type="hidden" asp-for="Product.ProductId" value="@item.ProductId" />
+                           <input asp-for="Product.ProductName" value="@item.ProductName">
+                       </td>
+                
+                       <td>
+                           <input asp-for="Product.UnitPrice" value="@item.UnitPrice">
+                       </td>
+                
+                       <td>
+                            <input asp-for="Product.UnitsInStock" value="@item.UnitsInStock">
+                       </td>
+                
+                       <td>
+                            <button type="submit" class="btn btn-xs btn-primary update-btn">Update</button>
+                         <a class="btn btn-xs btn-danger" asp-controller="Admin"
+                          asp-action="DeleteProduct" asp-route-productId="@item.ProductId">Delete</a>
+                       </td>
+                
+                  </tr>
+              </table>
+            </form>
         }
     </tbody>
 </table>

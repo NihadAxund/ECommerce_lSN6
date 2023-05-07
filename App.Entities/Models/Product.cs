@@ -25,5 +25,16 @@ namespace App.Entities.Models
         public virtual Category? Category { get; set; }
         public virtual Supplier? Supplier { get; set; }
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+
+        public void Copy(Product source)
+        {
+            if (source.ProductName!=string.Empty)
+                ProductName = source.ProductName;
+            if(source.UnitPrice>0)
+                UnitPrice = source.UnitPrice;
+            if(source.UnitsInStock>0)
+                UnitsInStock = source.UnitsInStock;
+
+        }
     }
 }
